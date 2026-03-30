@@ -182,9 +182,8 @@
 }
 
 .mb-cell img {
-    width: 100%;
     height: 100%;
-    object-fit: cover;
+    width: auto;
     display: block;
     filter: grayscale(75%) contrast(1.1);
     transition: filter 0.6s ease, transform 0.6s ease;
@@ -196,23 +195,20 @@
 }
 
 .mb-cell-xl {
-    width: 520px;
     height: 100%;
 }
 
 .mb-cell-tall {
-    width: 300px;
-    height: 100%;
+    height: 72%;
+    align-self: flex-end;
 }
 
 .mb-cell-md {
-    width: 320px;
     height: calc(50% - 6px);
 }
 
 .mb-cell-sm {
-    width: 240px;
-    height: calc(50% - 6px);
+    height: calc(38% - 6px);
 }
 
 /* ---------- Cell stacks & columns ---------- */
@@ -230,8 +226,12 @@
     flex-direction: column;
     gap: 12px;
     flex-shrink: 0;
-    width: 240px;
     height: 100%;
+}
+
+/* Fixed-width column for decorative-only content (no images) */
+.mb-cell-col-decor {
+    width: 200px;
 }
 
 /* ---------- Panel layout variants ---------- */
@@ -241,12 +241,6 @@
 
 .mb-panel-dual .mb-cell-col {
     justify-content: flex-start;
-}
-
-.mb-panel-grid {
-    flex-wrap: wrap;
-    align-content: flex-start;
-    max-height: 100%;
 }
 
 .mb-panel-grid .mb-cell-md {
@@ -554,9 +548,6 @@
         font-size: 2.2rem;
     }
 
-    .mb-cell-xl { width: 400px; }
-    .mb-cell-tall { width: 240px; }
-    .mb-cell-md { width: 260px; }
     .mb-panel-typo { width: 240px; }
     .mb-typo-giant { font-size: 3.5rem; }
 }
@@ -615,12 +606,7 @@
         overflow: auto;
     }
 
-    .mb-cell-xl { width: 320px; }
-    .mb-cell-tall { width: 200px; }
-    .mb-cell-md { width: 220px; }
-    .mb-cell-sm { width: 180px; }
     .mb-cell-stack { width: 120px; }
-    .mb-cell-col { width: 180px; }
     .mb-panel-typo { width: 200px; }
     .mb-typo-giant { font-size: 2.5rem; }
     .mb-end-block { width: 140px; }
@@ -632,10 +618,5 @@
         min-height: 320px;
     }
 
-    .mb-cell-xl { width: 280px; }
-    .mb-cell-tall { width: 170px; }
-    .mb-cell-md { width: 190px; }
-    .mb-cell-sm { width: 150px; }
     .mb-cell-stack { width: 100px; }
-    .mb-cell-col { width: 150px; }
 }
