@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Qinghe Gao</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .page-404 {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--color-bg-dark);
+        }
+        .page-404 h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(6rem, 15vw, 12rem);
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .page-404 p {
+            color: var(--color-text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .page-404 a {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--color-accent);
+            border-radius: 60px;
+            color: var(--color-accent-dark);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .page-404 a:hover {
+            background: var(--color-accent);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-404">
+        <div>
+            <h1>404</h1>
+            <p>This route doesn't exist. Maybe try a different line?</p>
+            <a href="index.html">Back to Base Camp</a>
+        </div>
+    </div>
+</body>
+</html>
