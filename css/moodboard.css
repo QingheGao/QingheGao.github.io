@@ -1,0 +1,641 @@
+/* ==========================================================================
+   MOOD BOARD — Contemporary Surrealist Exhibition
+   Swiss Style · Monochrome · Vivid International Orange accent
+   Horizontal scrolling editorial layout
+   ========================================================================== */
+
+/* ---------- Variables ---------- */
+:root {
+    --mb-orange: #FF4F00;
+    --mb-black: #1a1a1a;
+    --mb-white: #f8f8f6;
+    --mb-gray-100: #f0efed;
+    --mb-gray-200: #e2e1dd;
+    --mb-gray-400: #999;
+    --mb-gray-600: #666;
+    --mb-gray-800: #333;
+    --mb-font: 'Inter', -apple-system, sans-serif;
+    --mb-board-height: calc(100vh - var(--nav-height));
+}
+
+/* ---------- Body override for mood board page ---------- */
+.mb-body {
+    overflow: hidden;
+    background: var(--mb-white);
+}
+
+/* ---------- Main layout ---------- */
+.mb-main {
+    display: flex;
+    flex-direction: column;
+    height: var(--mb-board-height);
+    margin-top: var(--nav-height);
+    position: relative;
+}
+
+/* ---------- Left Sidebar (Swiss-style title) ---------- */
+.mb-sidebar {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    width: 260px;
+    height: var(--mb-board-height);
+    background: var(--mb-white);
+    border-right: 1px solid var(--mb-gray-200);
+    z-index: 50;
+    display: flex;
+    align-items: stretch;
+}
+
+.mb-sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem 1.75rem;
+    width: 100%;
+}
+
+.mb-tag {
+    font-family: var(--mb-font);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mb-orange);
+    margin-bottom: 1.5rem;
+}
+
+.mb-title {
+    font-family: var(--mb-font);
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    color: var(--mb-black);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.mb-subtitle {
+    font-family: var(--mb-font);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mb-gray-600);
+    line-height: 1.7;
+    margin-top: 1rem;
+}
+
+/* CMYK Swatches */
+.mb-cmyk {
+    display: flex;
+    gap: 4px;
+    margin-top: 1.5rem;
+}
+
+.mb-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 1px;
+}
+
+.mb-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-family: var(--mb-font);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mb-gray-400);
+    margin-top: auto;
+}
+
+.mb-scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--mb-font);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mb-gray-400);
+    margin-top: 1rem;
+}
+
+.mb-scroll-hint svg {
+    animation: hintSlide 2s ease-in-out infinite;
+}
+
+@keyframes hintSlide {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(6px); }
+}
+
+/* ---------- Canvas (horizontal scroll area) ---------- */
+.mb-canvas {
+    flex: 1;
+    margin-left: 260px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.mb-canvas::-webkit-scrollbar {
+    display: none;
+}
+
+.mb-canvas:active {
+    cursor: grabbing;
+}
+
+/* The board itself — a long horizontal strip */
+.mb-board {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    height: 100%;
+    padding: 2rem 2rem 2rem 0;
+}
+
+/* ---------- Panels (each "page" of the board) ---------- */
+.mb-panel {
+    flex-shrink: 0;
+    display: flex;
+    gap: 12px;
+    padding: 0 12px;
+    height: 100%;
+}
+
+/* ---------- Cells (image containers) ---------- */
+.mb-cell {
+    position: relative;
+    overflow: hidden;
+    background: var(--mb-gray-100);
+    flex-shrink: 0;
+}
+
+.mb-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(75%) contrast(1.1);
+    transition: filter 0.6s ease, transform 0.6s ease;
+}
+
+.mb-cell:hover img {
+    filter: grayscale(0%) contrast(1.05);
+    transform: scale(1.02);
+}
+
+.mb-cell-xl {
+    width: 520px;
+    height: 100%;
+}
+
+.mb-cell-tall {
+    width: 300px;
+    height: 100%;
+}
+
+.mb-cell-md {
+    width: 320px;
+    height: calc(50% - 6px);
+}
+
+.mb-cell-sm {
+    width: 240px;
+    height: calc(50% - 6px);
+}
+
+/* ---------- Cell stacks & columns ---------- */
+.mb-cell-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+    width: 180px;
+    height: 100%;
+}
+
+.mb-cell-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+    width: 240px;
+    height: 100%;
+}
+
+/* ---------- Panel layout variants ---------- */
+.mb-panel-hero {
+    align-items: stretch;
+}
+
+.mb-panel-dual .mb-cell-col {
+    justify-content: flex-start;
+}
+
+.mb-panel-grid {
+    flex-wrap: wrap;
+    align-content: flex-start;
+    max-height: 100%;
+}
+
+.mb-panel-grid .mb-cell-md {
+    height: calc(50% - 6px);
+}
+
+.mb-panel-trio {
+    align-items: stretch;
+}
+
+.mb-panel-feature {
+    align-items: stretch;
+}
+
+.mb-panel-end {
+    align-items: stretch;
+}
+
+/* ---------- Overlay tags (Swiss UI) ---------- */
+.mb-overlay-tag {
+    position: absolute;
+    font-family: var(--mb-font);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.mb-overlay-tl {
+    top: 10px;
+    left: 10px;
+}
+
+.mb-overlay-br {
+    bottom: 10px;
+    right: 10px;
+}
+
+/* ---------- Typography blocks (Swiss style) ---------- */
+.mb-type-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.5rem;
+    flex: 1;
+    min-height: 0;
+}
+
+.mb-type-lg {
+    font-family: var(--mb-font);
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--mb-black);
+    text-transform: uppercase;
+}
+
+.mb-type-accent {
+    color: var(--mb-orange);
+}
+
+.mb-type-vert {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-family: var(--mb-font);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--mb-gray-400);
+    padding: 1rem 0.5rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- Halftone / dither blocks ---------- */
+.mb-halftone-block {
+    flex: 1;
+    min-height: 80px;
+    background-image: radial-gradient(circle, var(--mb-black) 1px, transparent 1px);
+    background-size: 6px 6px;
+    opacity: 0.12;
+}
+
+.mb-halftone-inv {
+    background-image: radial-gradient(circle, var(--mb-orange) 1px, transparent 1px);
+    opacity: 0.15;
+}
+
+/* ---------- Color slabs ---------- */
+.mb-color-slab {
+    width: 100%;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.mb-color-orange {
+    background: var(--mb-orange) !important;
+    height: 6px;
+}
+
+/* ---------- Orange accent bar ---------- */
+.mb-orange-bar {
+    width: 40px;
+    height: 4px;
+    background: var(--mb-orange);
+    margin-top: 1rem;
+}
+
+/* ---------- Typography panel ---------- */
+.mb-panel-typo {
+    position: relative;
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mb-white);
+}
+
+.mb-dither-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, var(--mb-gray-200) 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.mb-typo-content {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    padding: 2rem;
+}
+
+.mb-typo-giant {
+    font-family: var(--mb-font);
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    color: var(--mb-black);
+    text-transform: uppercase;
+}
+
+.mb-typo-sub {
+    font-family: var(--mb-font);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mb-gray-400);
+    line-height: 1.8;
+    margin-top: 1rem;
+}
+
+/* ---------- UI Overlay block (camera data) ---------- */
+.mb-ui-overlay {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.mb-ui-line {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mb-font);
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mb-gray-600);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--mb-gray-200);
+}
+
+.mb-ui-line:last-child {
+    border-bottom: none;
+}
+
+/* ---------- End block ---------- */
+.mb-end-block {
+    flex-shrink: 0;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+.mb-end-mark {
+    font-family: var(--mb-font);
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--mb-black);
+}
+
+.mb-cmyk-end {
+    margin-top: 1.5rem;
+}
+
+/* ---------- Progress bar / slider ---------- */
+.mb-progress {
+    position: fixed;
+    bottom: 0;
+    left: 260px;
+    right: 0;
+    background: var(--mb-white);
+    padding: 0.75rem 2rem 1rem;
+    border-top: 1px solid var(--mb-gray-200);
+    z-index: 50;
+}
+
+.mb-progress-track {
+    position: relative;
+    height: 3px;
+    background: var(--mb-gray-200);
+    cursor: pointer;
+}
+
+.mb-progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--mb-orange);
+    transition: none;
+}
+
+.mb-progress-thumb {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: var(--mb-white);
+    border: 2px solid var(--mb-orange);
+    border-radius: 50%;
+    cursor: grab;
+    transition: box-shadow 0.2s ease;
+}
+
+.mb-progress-thumb:hover {
+    box-shadow: 0 0 0 4px rgba(255, 79, 0, 0.15);
+}
+
+.mb-progress-thumb:active {
+    cursor: grabbing;
+}
+
+.mb-progress-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.35rem;
+    font-family: var(--mb-font);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mb-gray-400);
+    user-select: none;
+}
+
+.mb-progress-pct {
+    color: var(--mb-orange);
+    font-size: 0.6rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+    .mb-sidebar {
+        width: 200px;
+    }
+
+    .mb-canvas {
+        margin-left: 200px;
+    }
+
+    .mb-progress {
+        left: 200px;
+    }
+
+    .mb-title {
+        font-size: 2.2rem;
+    }
+
+    .mb-cell-xl { width: 400px; }
+    .mb-cell-tall { width: 240px; }
+    .mb-cell-md { width: 260px; }
+    .mb-panel-typo { width: 240px; }
+    .mb-typo-giant { font-size: 3.5rem; }
+}
+
+@media (max-width: 768px) {
+    .mb-sidebar {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--mb-gray-200);
+    }
+
+    .mb-sidebar-inner {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 1.25rem 1.5rem;
+        gap: 0.75rem;
+    }
+
+    .mb-title {
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    .mb-subtitle,
+    .mb-meta,
+    .mb-scroll-hint {
+        display: none;
+    }
+
+    .mb-cmyk {
+        margin-top: 0;
+        margin-left: auto;
+    }
+
+    .mb-main {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .mb-canvas {
+        margin-left: 0;
+        height: 70vh;
+        min-height: 400px;
+    }
+
+    .mb-progress {
+        position: relative;
+        left: 0;
+    }
+
+    .mb-body {
+        overflow: auto;
+    }
+
+    .mb-cell-xl { width: 320px; }
+    .mb-cell-tall { width: 200px; }
+    .mb-cell-md { width: 220px; }
+    .mb-cell-sm { width: 180px; }
+    .mb-cell-stack { width: 120px; }
+    .mb-cell-col { width: 180px; }
+    .mb-panel-typo { width: 200px; }
+    .mb-typo-giant { font-size: 2.5rem; }
+    .mb-end-block { width: 140px; }
+}
+
+@media (max-width: 480px) {
+    .mb-canvas {
+        height: 55vh;
+        min-height: 320px;
+    }
+
+    .mb-cell-xl { width: 280px; }
+    .mb-cell-tall { width: 170px; }
+    .mb-cell-md { width: 190px; }
+    .mb-cell-sm { width: 150px; }
+    .mb-cell-stack { width: 100px; }
+    .mb-cell-col { width: 150px; }
+}

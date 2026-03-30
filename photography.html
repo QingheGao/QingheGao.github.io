@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography — Qinghe Gao</title>
-    <meta name="description" content="Photography portfolio by Qinghe Gao — landscapes, climbing, and moments.">
+    <meta name="description" content="Photography portfolio by Qinghe Gao — contemporary surrealist exhibition mood board.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/moodboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="mb-body">
     <!-- Navigation -->
     <nav class="nav scrolled" id="nav">
         <div class="nav-inner">
@@ -31,164 +32,182 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="container">
-            <div class="section-label">Through the Lens</div>
-            <h1 class="section-heading">PHOTOGRAPHY.</h1>
-            <p class="section-body center">
-                Images from the places I've been, the light I've chased,
-                and the quiet moments in between.
-            </p>
-        </div>
-    </header>
+    <!-- ====== MOOD BOARD ====== -->
+    <main class="mb-main">
 
-    <!-- Gallery Section -->
-    <section class="section section-dark">
-        <div class="container">
-            <div class="section-label">Selected Work</div>
-            <h2 class="section-heading">THE<br>GALLERY.</h2>
+        <!-- Fixed left sidebar — Swiss-style title block -->
+        <aside class="mb-sidebar">
+            <div class="mb-sidebar-inner">
+                <div class="mb-tag">Exhibition N° 01</div>
+                <h1 class="mb-title">PHOTO<br>GRAPHY</h1>
+                <p class="mb-subtitle">Contemporary Surrealist<br>Museum Studies</p>
 
-            <div class="gallery">
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Featured Photo 1</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location, Year</div>
+                <!-- CMYK Swatches -->
+                <div class="mb-cmyk">
+                    <div class="mb-swatch" style="background:#00AEEF;" title="C"></div>
+                    <div class="mb-swatch" style="background:#EC008C;" title="M"></div>
+                    <div class="mb-swatch" style="background:#FFF200;" title="Y"></div>
+                    <div class="mb-swatch" style="background:#1a1a1a;" title="K"></div>
                 </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Photo 2</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
+
+                <div class="mb-meta">
+                    <span>10 Works</span>
+                    <span>2024–2026</span>
                 </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Photo 3</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Photo 4</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Photo 5</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Photo 6</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Photo 7</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
+
+                <!-- Scroll hint -->
+                <div class="mb-scroll-hint">
+                    <span>Drag or scroll</span>
+                    <svg width="32" height="12" viewBox="0 0 32 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M0 6h28M22 1l6 5-6 5"/>
+                    </svg>
                 </div>
             </div>
-        </div>
-    </section>
+        </aside>
 
-    <!-- Story Section -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="story-block">
-                <div class="story-text">
-                    <h2 class="section-heading">WHY I<br>SHOOT.</h2>
-                    <p class="section-body">
-                        Photography started as a way to remember the places climbing took me.
-                        It became something more — a practice in observation, patience, and
-                        seeing what others overlook. I shoot mostly landscapes and adventure
-                        photography, but I'm drawn to any scene where light tells a story.
-                        Replace this with your own story.
-                    </p>
-                </div>
-                <div class="story-image">
-                    <div class="image-placeholder portrait">
-                        <span>Behind the Camera Photo</span>
+        <!-- The horizontal scroll canvas -->
+        <div class="mb-canvas" id="mbCanvas">
+            <div class="mb-board" id="mbBoard">
+
+                <!-- ===== PANEL 1: Hero image + overlay ===== -->
+                <div class="mb-panel mb-panel-hero">
+                    <div class="mb-cell mb-cell-xl">
+                        <img src="Figure/DSC_1775.JPG" alt="Contemplating Friedrich" loading="lazy">
+                        <div class="mb-overlay-tag mb-overlay-tl">001</div>
+                        <div class="mb-overlay-tag mb-overlay-br">Caspar David Friedrich</div>
+                    </div>
+                    <div class="mb-cell-stack">
+                        <div class="mb-halftone-block"></div>
+                        <div class="mb-type-block">
+                            <span class="mb-type-lg">THE</span>
+                            <span class="mb-type-lg mb-type-accent">GAZE</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- ===== PANEL 2: Dual column ===== -->
+                <div class="mb-panel mb-panel-dual">
+                    <div class="mb-cell mb-cell-tall">
+                        <img src="Figure/DSC_1503.JPG" alt="Ghost in motion" loading="lazy">
+                        <div class="mb-overlay-tag mb-overlay-tl">002</div>
+                    </div>
+                    <div class="mb-cell-col">
+                        <div class="mb-color-slab" style="background:#1a1a1a;"></div>
+                        <div class="mb-cell mb-cell-sm">
+                            <img src="Figure/DSC_1305.JPG" alt="Misty island and sailboat" loading="lazy">
+                            <div class="mb-overlay-tag mb-overlay-tl">003</div>
+                        </div>
+                        <div class="mb-type-block mb-type-vert">
+                            <span>SILHOUETTE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== PANEL 3: Typography break ===== -->
+                <div class="mb-panel mb-panel-typo">
+                    <div class="mb-dither-bg"></div>
+                    <div class="mb-typo-content">
+                        <div class="mb-typo-giant">SUR<br>REAL</div>
+                        <div class="mb-typo-sub">Contemporary<br>Museum Studies</div>
+                        <div class="mb-orange-bar"></div>
+                    </div>
+                </div>
+
+                <!-- ===== PANEL 4: Grid cluster ===== -->
+                <div class="mb-panel mb-panel-grid">
+                    <div class="mb-cell mb-cell-md">
+                        <img src="Figure/DSC_2291.JPG" alt="Statue beneath the oculus" loading="lazy">
+                        <div class="mb-overlay-tag mb-overlay-tl">004</div>
+                        <div class="mb-overlay-tag mb-overlay-br">Natural Light</div>
+                    </div>
+                    <div class="mb-cell mb-cell-md">
+                        <img src="Figure/DSC_1345.JPG" alt="Motion in the gallery" loading="lazy">
+                        <div class="mb-overlay-tag mb-overlay-tl">005</div>
+                    </div>
+                    <div class="mb-cell-col">
+                        <div class="mb-color-slab mb-color-orange"></div>
+                        <div class="mb-ui-overlay">
+                            <div class="mb-ui-line"><span>EXPOSURE</span><span>1/125</span></div>
+                            <div class="mb-ui-line"><span>APERTURE</span><span>ƒ/2.8</span></div>
+                            <div class="mb-ui-line"><span>ISO</span><span>800</span></div>
+                            <div class="mb-ui-line"><span>FOCAL</span><span>50mm</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== PANEL 5: Large + small ===== -->
+                <div class="mb-panel mb-panel-feature">
+                    <div class="mb-cell-stack">
+                        <div class="mb-type-block">
+                            <span class="mb-type-lg">FORM</span>
+                            <span class="mb-type-lg">&amp;</span>
+                            <span class="mb-type-lg mb-type-accent">VOID</span>
+                        </div>
+                        <div class="mb-halftone-block mb-halftone-inv"></div>
+                    </div>
+                    <div class="mb-cell mb-cell-xl">
+                        <img src="Figure/DSC_4934.JPG" alt="Double gaze — bust and horseman" loading="lazy">
+                        <div class="mb-overlay-tag mb-overlay-tl">006</div>
+                        <div class="mb-overlay-tag mb-overlay-br">Classical Form</div>
+                    </div>
+                </div>
+
+                <!-- ===== PANEL 6: Warm trio ===== -->
+                <div class="mb-panel mb-panel-trio">
+                    <div class="mb-cell mb-cell-md">
+                        <img src="Figure/DSC_0914.JPG" alt="Museum moment with Monet" loading="lazy">
+                        <div class="mb-overlay-tag mb-overlay-tl">007</div>
+                    </div>
+                    <div class="mb-cell mb-cell-tall">
+                        <img src="Figure/DSC_0918.JPG" alt="Contemplating Sisley" loading="lazy">
+                        <div class="mb-overlay-tag mb-overlay-tl">008</div>
+                        <div class="mb-overlay-tag mb-overlay-br">Sisley, Gold Frame</div>
+                    </div>
+                    <div class="mb-cell-col">
+                        <div class="mb-cell mb-cell-sm">
+                            <img src="Figure/DSC_4909.JPG" alt="Bronze detail" loading="lazy">
+                            <div class="mb-overlay-tag mb-overlay-tl">009</div>
+                        </div>
+                        <div class="mb-color-slab" style="background:#2c2c2c;"></div>
+                    </div>
+                </div>
+
+                <!-- ===== PANEL 7: Closing image + end mark ===== -->
+                <div class="mb-panel mb-panel-end">
+                    <div class="mb-cell mb-cell-xl">
+                        <img src="Figure/DSC_1517.JPG" alt="Silhouettes at dusk" loading="lazy">
+                        <div class="mb-overlay-tag mb-overlay-tl">010</div>
+                        <div class="mb-overlay-tag mb-overlay-br">Golden Hour</div>
+                    </div>
+                    <div class="mb-end-block">
+                        <div class="mb-end-mark">FIN.</div>
+                        <div class="mb-cmyk mb-cmyk-end">
+                            <div class="mb-swatch" style="background:#00AEEF;"></div>
+                            <div class="mb-swatch" style="background:#EC008C;"></div>
+                            <div class="mb-swatch" style="background:#FFF200;"></div>
+                            <div class="mb-swatch" style="background:#1a1a1a;"></div>
+                        </div>
+                        <div class="mb-orange-bar"></div>
+                    </div>
+                </div>
+
+            </div><!-- .mb-board -->
+        </div><!-- .mb-canvas -->
+
+        <!-- Bottom progress bar / slider -->
+        <div class="mb-progress" id="mbProgress">
+            <div class="mb-progress-track" id="mbProgressTrack">
+                <div class="mb-progress-fill" id="mbProgressFill"></div>
+                <div class="mb-progress-thumb" id="mbProgressThumb"></div>
+            </div>
+            <div class="mb-progress-labels">
+                <span>001</span>
+                <span class="mb-progress-pct" id="mbProgressPct">0%</span>
+                <span>010</span>
             </div>
         </div>
-    </section>
 
-    <!-- Second Gallery Row -->
-    <section class="section section-dark">
-        <div class="container">
-            <div class="section-label">More Work</div>
-            <h2 class="section-heading">LANDSCAPES<br>&amp; LIGHT.</h2>
-
-            <div class="gallery" style="margin-top: 3rem;">
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Landscape 1</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Landscape 2</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Landscape 3</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Landscape 4</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Landscape 5</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Landscape 6</span>
-                    </div>
-                    <div class="gallery-caption">Title — Location</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gear / Process -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="story-block reverse">
-                <div class="story-text">
-                    <h2 class="section-heading">GEAR &amp;<br>PROCESS.</h2>
-                    <p class="section-body">
-                        <strong>Camera:</strong> Your camera model<br>
-                        <strong>Lenses:</strong> Your favorite lenses<br>
-                        <strong>Editing:</strong> Lightroom / Capture One / etc.<br><br>
-                        I believe in minimal post-processing — getting it right in camera
-                        and letting the scene speak for itself. Replace with your own setup
-                        and philosophy.
-                    </p>
-                </div>
-                <div class="story-image">
-                    <div class="image-placeholder landscape">
-                        <span>Gear / Setup Photo</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -209,5 +228,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/moodboard.js"></script>
 </body>
 </html>

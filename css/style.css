@@ -577,6 +577,14 @@ img {
     color: var(--color-text-muted);
 }
 
+.pub-summary {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
 .pub-links {
     display: flex;
     gap: 1rem;
@@ -616,7 +624,7 @@ img {
 }
 
 .interest-item p {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     color: var(--color-text-muted);
     line-height: 1.7;
 }
