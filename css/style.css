@@ -162,7 +162,6 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     overflow: hidden;
 }
 
@@ -180,6 +179,68 @@ img {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, transparent 60%, var(--color-bg-dark) 100%);
+}
+
+/* Split layout: text left, portrait right */
+.hero-split {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: calc(var(--nav-height) + 3rem) 2rem 3rem;
+    width: 100%;
+}
+
+.hero-left {
+    text-align: left;
+}
+
+.hero-body {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.9;
+    max-width: 520px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+}
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.5s;
+}
+
+.hero-portrait {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 3/4;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04);
+}
+
+.hero-portrait::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    border: 1px solid rgba(193, 120, 86, 0.12);
+    pointer-events: none;
+}
+
+.hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .hero-content {
@@ -201,7 +262,7 @@ img {
 
 .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(4rem, 12vw, 10rem);
+    font-size: clamp(3rem, 7vw, 6rem);
     font-weight: 700;
     line-height: 0.95;
     letter-spacing: -0.02em;
@@ -875,6 +936,29 @@ img {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 968px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+        padding-top: calc(var(--nav-height) + 2rem);
+    }
+
+    .hero-left {
+        text-align: center;
+    }
+
+    .hero-body {
+        margin: 0 auto;
+    }
+
+    .hero-right {
+        order: -1;
+    }
+
+    .hero-portrait {
+        max-width: 280px;
+    }
+
     .story-block {
         grid-template-columns: 1fr;
         gap: 2rem;
